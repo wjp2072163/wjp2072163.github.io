@@ -14,10 +14,12 @@ aliyun 一台比较干净的 Centos的Linux操作系统。
 ``` bash
 # useradd git
 ``` 
+
 修改 /etc/passwd文件(非必要)
 ``` bash
 git:x:1001:1001::/home/git:/bin/bash
 ```
+
 改为
 ``` bash
 git:x:1001:1001::/home/git:/bin/sh
@@ -58,9 +60,9 @@ chown -R git test.git/
 
 ### 常见问题
 
-python 报错 需要修改默认Python的版本为2.*
+1、python 报错 需要修改默认Python的版本为2.*
 
-报错：refusing to merge unrelated histories
+2、报错：refusing to merge unrelated histories
 加参数 git pull --allow-unrelated-histories
 
 待补充。。。。
