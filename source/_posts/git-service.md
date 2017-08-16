@@ -13,7 +13,7 @@ aliyun 一台比较干净的 Centos的Linux操作系统。
 
 ``` bash
 # useradd git
-``` 
+```
 
 修改 /etc/passwd文件(非必要)
 ``` bash
