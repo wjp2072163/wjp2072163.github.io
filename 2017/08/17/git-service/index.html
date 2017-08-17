@@ -94,13 +94,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tiny PI">
-<meta property="og:url" content="https://wjp2072163.github.io/index.html">
+<meta name="description" content="目标搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。 环境aliyun 一台比较干净的 Centos的Linux操作系统。 步骤一、为git添加用户1# useradd git 修改 /etc/passwd文件(非必要)1git:x:1001:1001::/home/git:/bin/bash 改为1git:x:1001:1001::/home/git:/b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置git服务">
+<meta property="og:url" content="https://wjp2072163.github.io/2017/08/17/git-service/index.html">
 <meta property="og:site_name" content="Tiny PI">
+<meta property="og:description" content="目标搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。 环境aliyun 一台比较干净的 Centos的Linux操作系统。 步骤一、为git添加用户1# useradd git 修改 /etc/passwd文件(非必要)1git:x:1001:1001::/home/git:/bin/bash 改为1git:x:1001:1001::/home/git:/b">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2017-08-17T13:46:49.250Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tiny PI">
+<meta name="twitter:title" content="配置git服务">
+<meta name="twitter:description" content="目标搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。 环境aliyun 一台比较干净的 Centos的Linux操作系统。 步骤一、为git添加用户1# useradd git 修改 /etc/passwd文件(非必要)1git:x:1001:1001::/home/git:/bin/bash 改为1git:x:1001:1001::/home/git:/b">
 
 
 
@@ -129,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://wjp2072163.github.io/"/>
+  <link rel="canonical" href="https://wjp2072163.github.io/2017/08/17/git-service/"/>
 
 
 
 
 
-  <title>Tiny PI</title>
+  <title>配置git服务 | Tiny PI</title>
   
 
 
@@ -154,9 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,9 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -271,9 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/17/git-service/" itemprop="url">配置git服务</a></h1>
+          <h1 class="post-title" itemprop="name headline">配置git服务</h1>
         
 
         <div class="post-meta">
@@ -323,9 +323,7 @@
       
 
       
-        
-          
-            <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。</p>
+        <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。</p>
 <h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>aliyun 一台比较干净的 Centos的Linux操作系统。</p>
 <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="一、为git添加用户"><a href="#一、为git添加用户" class="headerlink" title="一、为git添加用户"></a>一、为git添加用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># useradd git</span></div></pre></td></tr></table></figure>
 <p>修改 /etc/passwd文件(非必要)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:1001:1001::/home/git:/bin/bash</div></pre></td></tr></table></figure></p>
@@ -340,8 +338,6 @@
 <p>2、报错：refusing to merge unrelated histories<br>加参数 git pull –allow-unrelated-histories</p>
 <p>待补充。。。。</p>
 
-          
-        
       
     </div>
     
@@ -358,12 +354,12 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -373,10 +369,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -384,6 +381,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -404,8 +405,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -449,6 +459,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、为git添加用户"><span class="nav-number">3.1.</span> <span class="nav-text">一、为git添加用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、安装git"><span class="nav-number">3.2.</span> <span class="nav-text">二、安装git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、安装gitosis"><span class="nav-number">3.3.</span> <span class="nav-text">三、安装gitosis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、创建版本库"><span class="nav-number">3.4.</span> <span class="nav-text">四、创建版本库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -572,10 +598,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
