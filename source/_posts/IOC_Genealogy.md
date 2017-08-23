@@ -1,5 +1,5 @@
 ---
-Spring IOC家族图谱
+title: Spring IOC家族图谱
 ---
 
 ### 整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。
