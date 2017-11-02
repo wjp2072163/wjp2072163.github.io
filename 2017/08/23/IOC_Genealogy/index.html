@@ -94,17 +94,19 @@
 
 
 
-<meta name="description" content="目标搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。 环境aliyun 一台比较干净的 Centos的Linux操作系统。 步骤一、为git添加用户1# useradd git 修改 /etc/passwd文件(非必要)1git:x:1001:1001::/home/git:/bin/bash 改为1git:x:1001:1001::/home/git:/b">
+<meta name="description" content="整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。  首先是BeanFactory，IOC相关的基类，主要定义getBean()的标准。 主要是看BeanFactory-&amp;gt;ListableBeanFactory-&amp;gt;ApplicationContext 这条线。 ListableBeanFactory，BeanFactory的扩展">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置git服务">
-<meta property="og:url" content="https://wjp2072163.github.io/2017/08/17/git-service/index.html">
+<meta property="og:title" content="Spring IOC家族图谱">
+<meta property="og:url" content="https://wjp2072163.github.io/2017/08/23/IOC_Genealogy/index.html">
 <meta property="og:site_name" content="Tiny PI">
-<meta property="og:description" content="目标搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。 环境aliyun 一台比较干净的 Centos的Linux操作系统。 步骤一、为git添加用户1# useradd git 修改 /etc/passwd文件(非必要)1git:x:1001:1001::/home/git:/bin/bash 改为1git:x:1001:1001::/home/git:/b">
+<meta property="og:description" content="整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。  首先是BeanFactory，IOC相关的基类，主要定义getBean()的标准。 主要是看BeanFactory-&amp;gt;ListableBeanFactory-&amp;gt;ApplicationContext 这条线。 ListableBeanFactory，BeanFactory的扩展">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2017-08-17T13:46:49.250Z">
+<meta property="og:image" content="https://wjp2072163.github.io/2017/08/23/IOC_Genealogy/resources/img/1.png">
+<meta property="og:updated_time" content="2017-08-23T14:05:06.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置git服务">
-<meta name="twitter:description" content="目标搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。 环境aliyun 一台比较干净的 Centos的Linux操作系统。 步骤一、为git添加用户1# useradd git 修改 /etc/passwd文件(非必要)1git:x:1001:1001::/home/git:/bin/bash 改为1git:x:1001:1001::/home/git:/b">
+<meta name="twitter:title" content="Spring IOC家族图谱">
+<meta name="twitter:description" content="整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。  首先是BeanFactory，IOC相关的基类，主要定义getBean()的标准。 主要是看BeanFactory-&amp;gt;ListableBeanFactory-&amp;gt;ApplicationContext 这条线。 ListableBeanFactory，BeanFactory的扩展">
+<meta name="twitter:image" content="https://wjp2072163.github.io/2017/08/23/IOC_Genealogy/resources/img/1.png">
 
 
 
@@ -133,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://wjp2072163.github.io/2017/08/17/git-service/"/>
+  <link rel="canonical" href="https://wjp2072163.github.io/2017/08/23/IOC_Genealogy/"/>
 
 
 
 
 
-  <title>配置git服务 | Tiny PI</title>
+  <title>Spring IOC家族图谱 | Tiny PI</title>
   
 
 
@@ -256,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wjp2072163.github.io/2017/08/17/git-service/">
+    <link itemprop="mainEntityOfPage" href="https://wjp2072163.github.io/2017/08/23/IOC_Genealogy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wangjp">
@@ -273,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">配置git服务</h1>
+          <h1 class="post-title" itemprop="name headline">Spring IOC家族图谱</h1>
         
 
         <div class="post-meta">
@@ -285,8 +287,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-17T21:46:49+08:00">
-                2017-08-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-23T21:56:26+08:00">
+                2017-08-23
               </time>
             
 
@@ -323,20 +325,31 @@
       
 
       
-        <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>搭建Git服务，为了方便团队开发人员代码管理，搭建一个远程免密登录Git Server。</p>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>aliyun 一台比较干净的 Centos的Linux操作系统。</p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="一、为git添加用户"><a href="#一、为git添加用户" class="headerlink" title="一、为git添加用户"></a>一、为git添加用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># useradd git</span></div></pre></td></tr></table></figure>
-<p>修改 /etc/passwd文件(非必要)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:1001:1001::/home/git:/bin/bash</div></pre></td></tr></table></figure></p>
-<p>改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:1001:1001::/home/git:/bin/sh</div></pre></td></tr></table></figure></p>
-<h4 id="二、安装git"><a href="#二、安装git" class="headerlink" title="二、安装git"></a>二、安装git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install git</span></div></pre></td></tr></table></figure>
-<h4 id="三、安装gitosis"><a href="#三、安装gitosis" class="headerlink" title="三、安装gitosis"></a>三、安装gitosis</h4><p>安装 gitosis<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/tv42/gitosis.git</div><div class="line"><span class="built_in">cd</span> gitosis</div><div class="line">python setup.py install</div></pre></td></tr></table></figure></p>
-<p>切换到用户git<br>初始化 gitosis<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gitosis-init &lt; /home/git/admin.pub</div></pre></td></tr></table></figure></p>
-<p>初始化后生成 gitosis-admin.git和gitosis</p>
-<p>然后，切换到root 授权<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 755 /home/git/repositories/gitosis-admin.git/hooks/post-update</div></pre></td></tr></table></figure></p>
-<h4 id="四、创建版本库"><a href="#四、创建版本库" class="headerlink" title="四、创建版本库"></a>四、创建版本库</h4><p>创建git版本库<br>在repositories中创建test.git文件夹<br>然后初始化版本库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> test.git</div><div class="line">git init --bare</div><div class="line"><span class="built_in">cd</span> ..</div><div class="line">chown -R git test.git/</div></pre></td></tr></table></figure></p>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>1、python 报错 需要修改默认Python的版本为2.*</p>
-<p>2、报错：refusing to merge unrelated histories<br>加参数 git pull –allow-unrelated-histories</p>
-<p>待补充。。。。</p>
+        <h3 id="整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。"><a href="#整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。" class="headerlink" title="整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。"></a>整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。</h3><p><img src="resources/img/1.png" alt="image"></p>
+<ol>
+<li>首先是BeanFactory，IOC相关的基类，主要定义getBean()的标准。</li>
+<li>主要是看BeanFactory-&gt;ListableBeanFactory-&gt;ApplicationContext 这条线。</li>
+<li>ListableBeanFactory，BeanFactory的扩展类，定义了可以枚举所有Bean实例的功能，而不是根据请求试图按照名字逐个的去查询。</li>
+<li>ApplicationContext 为应用提供配置功能的核心接口。继承了ListableBeanFactory，又继承了HierarchicalBeanFactory（定义了BeanFactory可以有父节点）使容器具有的分层的特性。</li>
+<li>接着是ApplicationContext继承了MessageResource 的接口，定义处理消息的策略，支持参数化和国际化的消息，使得ApplicationContext具有的对消息处理的功能。</li>
+<li>ApplicationContext 继承了接口EnvironmentCapable，定义了容器可获得当前运行环境的特性（System.getenv()和System.getProperties()）</li>
+<li>ApplicationContext 继承了接口ApplicationEventPublisher，定义了IOC容器的一些事件的监听及处理操作，如ContextClosedEvent，ContextRefreshedEvent等事件。</li>
+<li>ApplicationContext 继承了接口ResourcePatternResolver，继承与ResourceLoader接口，解析Ioc容器的资源的加载器，把待加载到容器中的bean等资源解析出来。</li>
+<li>ConfigurableApplicationContext  提供配置应用程序上下文和ApplicationContext接口中client的功能。继承接口Lifecycle用于定义启动/停止生命周期控制的方法。典型的用例是控制异步处理。</li>
+<li>AbstractApplicationContext 实现接口ConfigurableApplicationContext，是接口ApplicationContext的抽象实现，使用模板方法实现通用的ApplicationContext的功能，</li>
+<li>AbstractRefreshableApplicationContext实现AbstractApplicationContext， 线程安全（synchronized），实现refreshBeanFactory，cancelRefresh，closeBeanFactory，getBeanFactory方法，子类需实现loadBeanDefinitions方法。</li>
+<li>AbstractRefreshableConfigApplicationContext添加指定配置位置的常规处理的子类，是实现基于xml配置的ApplicationContext的基类。</li>
+<li>AbstractXmlApplicationContext,实现子类需实现loadBeanDefinitions方法，通过XmlBeanDefinitionReader读取XML中的bean的定义。</li>
+<li>ClassPathXmlApplicationContext从classpath路径(“mypackage/myresource.txt”)中读取bean的配置文件，如果多个配置文件，后加载的bean可以覆盖先加载的bean。</li>
+<li>FileSystemXmlApplicationContext从文件系统（”mydir/myfile.txt”）中读取配置，其他的和ClassPathXmlApplicationContext相同。</li>
+<li>AbstractRefreshableWebApplicationContext是对AbstractRefreshableConfigApplicationContext加入了web的属性.</li>
+<li>XmlWebApplicationContext默认读取/WEB-INF/applicationContext.xml配置文件。</li>
+<li>AnnotationConfigWebApplicationContext读取定义包下的Annotation注解的bean。</li>
+<li>GenericApplicationContext 是对ApplicationContext的通用的实现，内部定义了一个DefaultListableBeanFactory，不指定bean的定义的形式。通过实现BeanDefinitionRegistry接口，以适应各种bean定义的reader。</li>
+<li>GenericXmlApplicationContext定义用XmlBeanDefinitionReader读取BeanDefinition。</li>
+<li>StaticApplicationContext ApplicationContext支持bean和消息的编程注册的实现，而不是从外部配置源读取bean定义。主要用于测试。</li>
+<li>GenericWebApplicationContext,AnnotationConfigApplicationContext</li>
+</ol>
 
       
     </div>
@@ -361,15 +374,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/08/17/git-service/" rel="next" title="配置git服务">
+                <i class="fa fa-chevron-left"></i> 配置git服务
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/23/IOC_Genealogy/" rel="prev" title="Spring IOC家族图谱">
-                Spring IOC家族图谱 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -485,7 +498,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、为git添加用户"><span class="nav-number">3.1.</span> <span class="nav-text">一、为git添加用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、安装git"><span class="nav-number">3.2.</span> <span class="nav-text">二、安装git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、安装gitosis"><span class="nav-number">3.3.</span> <span class="nav-text">三、安装gitosis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、创建版本库"><span class="nav-number">3.4.</span> <span class="nav-text">四、创建版本库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。"><span class="nav-number">1.</span> <span class="nav-text">整理了下spring4的BeanFactory的家族图谱，对spring定制的整个IOC标准有个大致的了解。</span></a></li></ol></div>
             
 
           </div>
